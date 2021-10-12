@@ -4,7 +4,7 @@ mod deref {
     macro_rules! impl_deref_mut {
         ($struct_name:ident) => {
             $crate::impl_deref!($struct_name);
-            impl<T: ?Sized> std::ops::DerefMut for $struct_name<T> {
+            impl<T: ?Sized> core::ops::DerefMut for $struct_name<T> {
                 fn deref_mut(&mut self) -> &mut Self::Target {
                     unsafe { &mut *self.mutex.inner.data.get() }
                 }
@@ -12,7 +12,7 @@ mod deref {
         };
         ($struct_name:ident, $lifetime:lifetime) => {
             $crate::impl_deref!($struct_name, $lifetime);
-            impl<$lifetime, T: ?Sized> std::ops::DerefMut for $struct_name<$lifetime, T> {
+            impl<$lifetime, T: ?Sized> core::ops::DerefMut for $struct_name<$lifetime, T> {
                 fn deref_mut(&mut self) -> &mut Self::Target {
                     unsafe { &mut *self.mutex.inner.data.get() }
                 }
@@ -23,7 +23,7 @@ mod deref {
     #[macro_export]
     macro_rules! impl_deref {
         ($struct_name:ident) => {
-            impl<T: ?Sized> std::ops::Deref for $struct_name<T> {
+            impl<T: ?Sized> core::ops::Deref for $struct_name<T> {
                 type Target = T;
 
                 fn deref(&self) -> &Self::Target {
@@ -32,7 +32,7 @@ mod deref {
             }
         };
         ($struct_name:ident, $lifetime:lifetime) => {
-            impl<$lifetime, T: ?Sized> std::ops::Deref for $struct_name<$lifetime, T> {
+            impl<$lifetime, T: ?Sized> core::ops::Deref for $struct_name<$lifetime, T> {
                 type Target = T;
 
                 fn deref(&self) -> &Self::Target {

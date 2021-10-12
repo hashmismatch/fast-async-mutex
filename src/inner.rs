@@ -1,6 +1,6 @@
-use std::cell::UnsafeCell;
-use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
-use std::task::Waker;
+use core::cell::UnsafeCell;
+use core::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+use core::task::Waker;
 
 #[derive(Debug)]
 pub(crate) struct Inner<T: ?Sized> {

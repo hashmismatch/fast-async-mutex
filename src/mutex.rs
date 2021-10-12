@@ -1,9 +1,9 @@
 use crate::inner::Inner;
-use std::fmt::Debug;
-use std::future::Future;
-use std::pin::Pin;
-use std::sync::Arc;
-use std::task::{Context, Poll};
+use alloc::fmt::Debug;
+use core::future::Future;
+use core::pin::Pin;
+use alloc::sync::Arc;
+use core::task::{Context, Poll};
 
 /// The simple Mutex, which will provide unique access to you data between multiple threads/futures.
 #[derive(Debug)]

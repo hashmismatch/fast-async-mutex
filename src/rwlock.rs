@@ -1,10 +1,10 @@
 use crate::inner::Inner;
-use std::fmt::Debug;
-use std::future::Future;
-use std::pin::Pin;
-use std::sync::atomic::{AtomicUsize, Ordering};
-use std::sync::Arc;
-use std::task::{Context, Poll};
+use alloc::fmt::Debug;
+use core::future::Future;
+use core::pin::Pin;
+use core::sync::atomic::{AtomicUsize, Ordering};
+use alloc::sync::Arc;
+use core::task::{Context, Poll};
 
 /// The RW Lock mechanism accepts you get concurrent shared access to your data without waiting.
 /// And get unique access with locks like a Mutex.

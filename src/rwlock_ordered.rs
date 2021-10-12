@@ -1,10 +1,10 @@
 use crate::inner::OrderedInner;
-use std::fmt::Debug;
-use std::future::Future;
-use std::pin::Pin;
-use std::sync::atomic::{AtomicUsize, Ordering};
-use std::sync::Arc;
-use std::task::{Context, Poll};
+use alloc::fmt::Debug;
+use core::future::Future;
+use core::pin::Pin;
+use core::sync::atomic::{AtomicUsize, Ordering};
+use alloc::sync::Arc;
+use core::task::{Context, Poll};
 
 /// The Ordered RW Lock will be locking all reads, which starting after write and unlocking them only when write will realize.
 /// It may be slow down the reads speed, but decrease time to write on systems, where it is critical.

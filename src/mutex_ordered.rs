@@ -1,9 +1,9 @@
 use crate::inner::OrderedInner;
-use std::fmt::Debug;
-use std::future::Future;
-use std::pin::Pin;
-use std::sync::Arc;
-use std::task::{Context, Poll};
+use alloc::fmt::Debug;
+use core::future::Future;
+use core::pin::Pin;
+use alloc::sync::Arc;
+use core::task::{Context, Poll};
 
 /// The Ordered Mutex has its mechanism of locking order when you have concurrent access to data.
 /// It will work well when you needed step by step data locking like sending UDP packages in a specific order.
